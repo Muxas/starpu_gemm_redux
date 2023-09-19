@@ -18,7 +18,7 @@
 ###############################################################################
 
 # Set minimum CMake version to avoid configuration problems
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.16)
 message(STATUS "Using CMake ${CMAKE_VERSION}")
 
 # Define the project
@@ -56,6 +56,8 @@ pkg_check_modules(StarPU REQUIRED starpu-1.4)
 add_executable(gemm_redux "gemm_redux.cc")
 
 # Link against CUDA
-target_link_libraries(gemm_redux PRIVATE CUDA::cudart CUDA::cublas ${StarPU_LDFLAGS})
+target_link_libraries(gemm_redux PRIVATE CUDA::cudart CUDA::cublas CUDA::nvml
+    CUDA::cusparse CUDA::cusolver)
+target_link_libraries(gemm_redux PRIVATE ${StarPU_LDFLAGS})
 target_include_directories(gemm_redux PRIVATE ${StarPU_INCLUDE_DIRS})
 

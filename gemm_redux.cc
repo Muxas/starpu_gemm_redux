@@ -208,9 +208,9 @@ int main(int argc, char **argv)
                     STARPU_REDUX, C[j], 0);
         }
     }
-    // Run compute
+    // Run compute with one way of task submission
     starpu_task_wait_for_all();
-    const auto start{std::chrono::steady_clock::now()};
+    starpu_pause();
     for(int i = 0; i < NB; ++i)
     {
         for(int j = 0; j < D; ++j)
@@ -219,11 +219,33 @@ int main(int argc, char **argv)
                     STARPU_REDUX, C[j], 0);
         }
     }
+    const auto start1{std::chrono::steady_clock::now()};
+    starpu_resume();
     // Wait for all computations to finish
     starpu_task_wait_for_all();
-    const auto end{std::chrono::steady_clock::now()};
-    const std::chrono::duration<double> elapsed_seconds{end - start};
-    std::cout << "Time: " << elapsed_seconds.count() << "\n";
+    const auto end1{std::chrono::steady_clock::now()};
+    const std::chrono::duration<double> elapsed_seconds1{end1 - start1};
+    std::cout << "Time for one way of task submission: "
+        << elapsed_seconds1.count() << " seconds\n";
+    // Run compute with another way of task submission
+    starpu_task_wait_for_all();
+    starpu_pause();
+    for(int j = 0; j < D; ++j)
+    {
+        for(int i = 0; i < NB; ++i)
+        {
+            starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
+                    STARPU_REDUX, C[j], 0);
+        }
+    }
+    const auto start2{std::chrono::steady_clock::now()};
+    starpu_resume();
+    // Wait for all computations to finish
+    starpu_task_wait_for_all();
+    const auto end2{std::chrono::steady_clock::now()};
+    const std::chrono::duration<double> elapsed_seconds2{end2 - start2};
+    std::cout << "Time for another way of task submission: "
+        << elapsed_seconds2.count() << " seconds\n";
     // Unregister data and shut down StarPU
     for(int i = 0; i < D*NB; ++i)
     {
@@ -234,6 +256,7 @@ int main(int argc, char **argv)
     {
         starpu_data_unregister(C[i]);
     }
+    starpu_cublas_shutdown();
     starpu_shutdown();
 }
 
