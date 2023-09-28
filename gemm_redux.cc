@@ -17,6 +17,7 @@
 #include <starpu.h>
 #include <starpu_cublas_v2.h>
 
+// Make all entries of a buffer zero (CUDA)
 void zero_func(void *buffers[], void *cl_args)
 {
     float *data = (float *)STARPU_MATRIX_GET_PTR(buffers[0]);
@@ -34,6 +35,7 @@ void zero_func(void *buffers[], void *cl_args)
     cudaMemsetAsync(data, 0, size, stream);
 }
 
+// Add two vectors (CUDA)
 void add_func(void *buffers[], void *cl_args)
 {
     float *dst = (float *)STARPU_MATRIX_GET_PTR(buffers[0]);
@@ -69,6 +71,7 @@ void add_func(void *buffers[], void *cl_args)
     cublasSaxpy(handle, ld_src*ny_src, &one, src, 1, dst, 1);
 }
 
+// Multiply two matrices and accumulate result
 void gemm_func(void *buffers[], void *cl_args)
 {
     const float *A = (float *)STARPU_MATRIX_GET_PTR(buffers[0]);
@@ -117,24 +120,28 @@ void gemm_func(void *buffers[], void *cl_args)
             B, ldB, &one, C, ldC);
 }
 
+// Perf model for the clearing function
 starpu_perfmodel zero_perf =
 {
     .type = STARPU_HISTORY_BASED,
     .symbol = "zero"
 };
 
+// Perf model for the result accumulation function
 starpu_perfmodel add_perf =
 {
     .type = STARPU_HISTORY_BASED,
     .symbol = "add"
 };
 
+// Perf model for matrix multiplication
 starpu_perfmodel gemm_perf =
 {
     .type = STARPU_HISTORY_BASED,
     .symbol = "gemm"
 };
 
+// Codelet for the clearing function
 starpu_codelet zero_cl =
 {
     .cuda_funcs = {zero_func},
@@ -144,6 +151,7 @@ starpu_codelet zero_cl =
     .model = &zero_perf
 };
 
+// Codelet for the result accumulation function
 starpu_codelet add_cl =
 {
     .cuda_funcs = {add_func},
@@ -154,6 +162,7 @@ starpu_codelet add_cl =
     .model = &add_perf
 };
 
+// Codelet for the matrix multiplication
 starpu_codelet gemm_cl =
 {
     .cuda_funcs = {gemm_func},
@@ -163,6 +172,7 @@ starpu_codelet gemm_cl =
     .model = &gemm_perf
 };
 
+// Main executable
 int main(int argc, char **argv)
 {
     // Init StarPU and cuBLAS
@@ -173,17 +183,49 @@ int main(int argc, char **argv)
     }
     starpu_cublas_init();
     // Check arguments
-    if(argc != 6)
+    if(argc != 8)
     {
-        throw std::runtime_error("Wrong number of parameters: gemm_redux M N K D NB");
+        std::cerr << "Wrong number of parameters. This executable takes "
+            "following arguments:\n\t./gemm_redux M N K D NB R mode\n"
+            "This executable initializes a list of D*NB input matrices A of a shape "
+            "M-by-K, a list of D*NB input matrices B of a shape K-by-N and a list of D matrices C"
+            " of a shape M-by-N. Then, each matrix C[i] accumulates product of"
+            "NB pairs of corresponding matrices A[j] and B[j] (with properly "
+            "defined indices j), this process repeats R times. This process can be simply described as "
+            "follows:\nfor r = 0, 1, ..., R-1\n\tfor i = 0, 1, ..., D-1\n\t\tfor j = 0, 1, ..., NB-1"
+            "\n\t\t\tC[i] += A[i][j] * B[i][j]\nParameters:\n\tM: number of "
+            "rows of matrices A[i][j] and C[i]\n\tN: number of columns of "
+            "matrices B[i][j] and C[i]\n\tK: number of columns of matrices "
+            "A[i][j] and number of rows of matrices B[i][j]\n\tD: number of "
+            "matrices in a list C\n\tNB: number of matrices in lists A[i] and "
+            "B[i]\n\tmode: Access mode for matrices C[i]. It is 0 for "
+            "STARPU_RW and 1 for STARPU_REDUX\n";
+        return 1;
     }
+    // Read arguments
     int M = atoi(argv[1]);
     int N = atoi(argv[2]);
     int K = atoi(argv[3]);
     int D = atoi(argv[4]);
     int NB = atoi(argv[5]);
+    int R = atoi(argv[6]);
+    int mode = atoi(argv[7]);
+    if(M <= 0 or N <= 0 or K <=0 or D <= 0 or NB <= 0 or R <= 0 or mode < 0 or mode > 1)
+    {
+        throw std::runtime_error("Invalid input value");
+    }
     std::cout << "M=" << M << " N=" << N << " K=" << K << " D=" << D << " NB="
-        << NB << "\n";
+        << NB << " R=" << R << " mode=" << mode << "\n";
+    enum starpu_data_access_mode C_mode;
+    if(mode == 0)
+    {
+        C_mode = STARPU_RW;
+    }
+    else
+    {
+        C_mode = STARPU_REDUX;
+    }
+    gemm_cl.modes[2] = C_mode;
     // Initialize data handles and fill with zeros
     std::vector<starpu_data_handle_t> A(D*NB), B(D*NB), C(D);
     for(int i = 0; i < D*NB; ++i)
@@ -205,22 +247,25 @@ int main(int argc, char **argv)
         for(int j = 0; j < D; ++j)
         {
             starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
-                    STARPU_REDUX, C[j], 0);
+                    C_mode, C[j], 0);
         }
     }
-    // Run compute with one way of task submission
+    // Run compute with one way of task submission and measure time
     starpu_task_wait_for_all();
-    starpu_pause();
-    for(int i = 0; i < NB; ++i)
+    //starpu_pause();
+    for(int r = 0; r < R; ++r)
     {
-        for(int j = 0; j < D; ++j)
+        for(int i = 0; i < NB; ++i)
         {
-            starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
-                    STARPU_REDUX, C[j], 0);
+            for(int j = 0; j < D; ++j)
+            {
+                starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
+                        C_mode, C[j], 0);
+            }
         }
     }
     const auto start1{std::chrono::steady_clock::now()};
-    starpu_resume();
+    //starpu_resume();
     // Wait for all computations to finish
     starpu_task_wait_for_all();
     const auto end1{std::chrono::steady_clock::now()};
@@ -229,17 +274,20 @@ int main(int argc, char **argv)
         << elapsed_seconds1.count() << " seconds\n";
     // Run compute with another way of task submission
     starpu_task_wait_for_all();
-    starpu_pause();
-    for(int j = 0; j < D; ++j)
+    //starpu_pause();
+    for(int r = 0; r < R; ++r)
     {
-        for(int i = 0; i < NB; ++i)
+        for(int j = 0; j < D; ++j)
         {
-            starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
-                    STARPU_REDUX, C[j], 0);
+            for(int i = 0; i < NB; ++i)
+            {
+                starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
+                        C_mode, C[j], 0);
+            }
         }
     }
     const auto start2{std::chrono::steady_clock::now()};
-    starpu_resume();
+    //starpu_resume();
     // Wait for all computations to finish
     starpu_task_wait_for_all();
     const auto end2{std::chrono::steady_clock::now()};
