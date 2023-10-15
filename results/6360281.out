@@ -1,0 +1,448 @@
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 20.8797 seconds
+Time for one way of task submission (the same as warmup): 20.8242 seconds
+Time for another way of task submission: 20.8285 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 20.8508 seconds
+Time for one way of task submission (the same as warmup): 20.8353 seconds
+Time for another way of task submission: 20.7973 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.8187 seconds
+Time for one way of task submission (the same as warmup): 10.4011 seconds
+Time for another way of task submission: 10.4004 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 10.8813 seconds
+Time for one way of task submission (the same as warmup): 10.4049 seconds
+Time for another way of task submission: 10.3907 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 8.19587 seconds
+Time for one way of task submission (the same as warmup): 6.9472 seconds
+Time for another way of task submission: 6.95106 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 8.44908 seconds
+Time for one way of task submission (the same as warmup): 6.95449 seconds
+Time for another way of task submission: 6.9438 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 7.7031 seconds
+Time for one way of task submission (the same as warmup): 5.19091 seconds
+Time for another way of task submission: 5.22704 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 8.32158 seconds
+Time for one way of task submission (the same as warmup): 5.21054 seconds
+Time for another way of task submission: 5.20335 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 8.72258 seconds
+Time for one way of task submission (the same as warmup): 4.17821 seconds
+Time for another way of task submission: 4.15685 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 9.6055 seconds
+Time for one way of task submission (the same as warmup): 4.27519 seconds
+Time for another way of task submission: 4.27041 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.5699 seconds
+Time for one way of task submission (the same as warmup): 3.46748 seconds
+Time for another way of task submission: 3.51643 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 11.7952 seconds
+Time for one way of task submission (the same as warmup): 3.53192 seconds
+Time for another way of task submission: 3.52721 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 13.2904 seconds
+Time for one way of task submission (the same as warmup): 2.99345 seconds
+Time for another way of task submission: 2.99225 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 14.8391 seconds
+Time for one way of task submission (the same as warmup): 3.01396 seconds
+Time for another way of task submission: 3.01026 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dm STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 16.546 seconds
+Time for one way of task submission (the same as warmup): 2.65176 seconds
+Time for another way of task submission: 2.64334 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dm STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 18.2421 seconds
+Time for one way of task submission (the same as warmup): 2.6312 seconds
+Time for another way of task submission: 2.62658 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 20.8855 seconds
+Time for one way of task submission (the same as warmup): 20.8273 seconds
+Time for another way of task submission: 20.8252 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 20.86 seconds
+Time for one way of task submission (the same as warmup): 20.8318 seconds
+Time for another way of task submission: 20.7938 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.9442 seconds
+Time for one way of task submission (the same as warmup): 10.7444 seconds
+Time for another way of task submission: 10.7846 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 10.6836 seconds
+Time for one way of task submission (the same as warmup): 10.4212 seconds
+Time for another way of task submission: 10.4068 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.5564 seconds
+Time for one way of task submission (the same as warmup): 9.84737 seconds
+Time for another way of task submission: 9.80352 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 7.41036 seconds
+Time for one way of task submission (the same as warmup): 6.96649 seconds
+Time for another way of task submission: 6.98632 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 8.2747 seconds
+Time for one way of task submission (the same as warmup): 6.93015 seconds
+Time for another way of task submission: 6.84228 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 5.8498 seconds
+Time for one way of task submission (the same as warmup): 5.23087 seconds
+Time for another way of task submission: 5.2881 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 7.08174 seconds
+Time for one way of task submission (the same as warmup): 5.37406 seconds
+Time for another way of task submission: 5.32292 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 5.10051 seconds
+Time for one way of task submission (the same as warmup): 4.24814 seconds
+Time for another way of task submission: 4.31655 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 6.56233 seconds
+Time for one way of task submission (the same as warmup): 4.30118 seconds
+Time for another way of task submission: 4.29903 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 4.6988 seconds
+Time for one way of task submission (the same as warmup): 3.52009 seconds
+Time for another way of task submission: 3.59679 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 5.89579 seconds
+Time for one way of task submission (the same as warmup): 3.53589 seconds
+Time for another way of task submission: 3.52505 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 4.44419 seconds
+Time for one way of task submission (the same as warmup): 3.02171 seconds
+Time for another way of task submission: 3.18825 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 6.07491 seconds
+Time for one way of task submission (the same as warmup): 3.053 seconds
+Time for another way of task submission: 3.03486 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmda STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 4.31721 seconds
+Time for one way of task submission (the same as warmup): 2.66529 seconds
+Time for another way of task submission: 2.7567 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 20.8647 seconds
+Time for one way of task submission (the same as warmup): 20.8263 seconds
+Time for another way of task submission: 20.8244 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 20.8711 seconds
+Time for one way of task submission (the same as warmup): 20.8364 seconds
+Time for another way of task submission: 20.8027 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 11.096 seconds
+Time for one way of task submission (the same as warmup): 10.9162 seconds
+Time for another way of task submission: 10.9747 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 10.6511 seconds
+Time for one way of task submission (the same as warmup): 10.4144 seconds
+Time for another way of task submission: 10.4046 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.5809 seconds
+Time for one way of task submission (the same as warmup): 9.87737 seconds
+Time for another way of task submission: 9.86378 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 7.42048 seconds
+Time for one way of task submission (the same as warmup): 6.96883 seconds
+Time for another way of task submission: 6.98202 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 8.27802 seconds
+Time for one way of task submission (the same as warmup): 6.89548 seconds
+Time for another way of task submission: 6.84858 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 5.85296 seconds
+Time for one way of task submission (the same as warmup): 5.2328 seconds
+Time for another way of task submission: 5.29334 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 7.10947 seconds
+Time for one way of task submission (the same as warmup): 5.33909 seconds
+Time for another way of task submission: 5.30689 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 5.07666 seconds
+Time for one way of task submission (the same as warmup): 4.24706 seconds
+Time for another way of task submission: 4.33142 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 6.51659 seconds
+Time for one way of task submission (the same as warmup): 4.34576 seconds
+Time for another way of task submission: 4.29436 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 4.65647 seconds
+Time for one way of task submission (the same as warmup): 3.51853 seconds
+Time for another way of task submission: 3.61993 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 6.06906 seconds
+Time for one way of task submission (the same as warmup): 3.5337 seconds
+Time for another way of task submission: 3.51418 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 4.46983 seconds
+Time for one way of task submission (the same as warmup): 3.0131 seconds
+Time for another way of task submission: 3.1637 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 10 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 6.01222 seconds
+Time for one way of task submission (the same as warmup): 3.03708 seconds
+Time for another way of task submission: 3.0343 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=dmdar STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 10 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 4.2871 seconds
+Time for one way of task submission (the same as warmup): 2.67332 seconds
+Time for another way of task submission: 2.74888 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 20.8209 seconds
+Time for one way of task submission (the same as warmup): 20.807 seconds
+Time for another way of task submission: 20.8082 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=1 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 20.8524 seconds
+Time for one way of task submission (the same as warmup): 20.8062 seconds
+Time for another way of task submission: 20.7851 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.8887 seconds
+Time for one way of task submission (the same as warmup): 10.3787 seconds
+Time for another way of task submission: 10.3979 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=2 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 10.8552 seconds
+Time for one way of task submission (the same as warmup): 10.3906 seconds
+Time for another way of task submission: 10.3826 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 8.30642 seconds
+Time for one way of task submission (the same as warmup): 6.95699 seconds
+Time for another way of task submission: 6.95894 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=3 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 8.14192 seconds
+Time for one way of task submission (the same as warmup): 6.93049 seconds
+Time for another way of task submission: 6.9216 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 7.76318 seconds
+Time for one way of task submission (the same as warmup): 5.20748 seconds
+Time for another way of task submission: 5.20857 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=4 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 7.6351 seconds
+Time for one way of task submission (the same as warmup): 5.20205 seconds
+Time for another way of task submission: 5.19427 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 8.80323 seconds
+Time for one way of task submission (the same as warmup): 4.17378 seconds
+Time for another way of task submission: 4.17128 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=5 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 8.60555 seconds
+Time for one way of task submission (the same as warmup): 4.1624 seconds
+Time for another way of task submission: 4.15951 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 10.8283 seconds
+Time for one way of task submission (the same as warmup): 3.48029 seconds
+Time for another way of task submission: 3.47896 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=6 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 10.5638 seconds
+Time for one way of task submission (the same as warmup): 3.46938 seconds
+Time for another way of task submission: 3.46489 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 13.6369 seconds
+Time for one way of task submission (the same as warmup): 2.9919 seconds
+Time for another way of task submission: 2.98844 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=7 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 13.2944 seconds
+Time for one way of task submission (the same as warmup): 2.9745 seconds
+Time for another way of task submission: 2.97308 seconds
+
+Check STARPU_RW|STARPU_COMMUTE data access mode
+STARPU_SCHED=eager STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 50 0
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=0
+Time for a warmup: 17.0516 seconds
+Time for one way of task submission (the same as warmup): 2.62299 seconds
+Time for another way of task submission: 2.65805 seconds
+
+Check STARPU_REDUX data access mode
+STARPU_SCHED=eager STARPU_NCUDA=8 gemm_redux 1024 1024 1024 32 100 50 1
+M=1024 N=1024 K=1024 D=32 NB=100 R=50 mode=1
+Time for a warmup: 16.7266 seconds
+Time for one way of task submission (the same as warmup): 2.6083 seconds
+Time for another way of task submission: 2.60326 seconds
+

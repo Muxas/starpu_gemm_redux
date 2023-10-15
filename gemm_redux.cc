@@ -242,17 +242,8 @@ int main(int argc, char **argv)
         starpu_data_set_reduction_methods(C[i], &add_cl, &zero_cl);
     }
     // Run warmup
-    for(int i = 0; i < NB; ++i)
-    {
-        for(int j = 0; j < D; ++j)
-        {
-            starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
-                    C_mode, C[j], 0);
-        }
-    }
-    // Run compute with one way of task submission and measure time
     starpu_task_wait_for_all();
-    //starpu_pause();
+    const auto start0{std::chrono::steady_clock::now()};
     for(int r = 0; r < R; ++r)
     {
         for(int i = 0; i < NB; ++i)
@@ -264,17 +255,35 @@ int main(int argc, char **argv)
             }
         }
     }
+    // Wait for all computations to finish
+    starpu_task_wait_for_all();
+    const auto end0{std::chrono::steady_clock::now()};
+    const std::chrono::duration<double> elapsed_seconds0{end0 - start0};
+    std::cout << "Time for a warmup: " << elapsed_seconds0.count()
+        << " seconds\n";
+    // Run compute with one way of task submission and measure time
+    starpu_task_wait_for_all();
     const auto start1{std::chrono::steady_clock::now()};
-    //starpu_resume();
+    for(int r = 0; r < R; ++r)
+    {
+        for(int i = 0; i < NB; ++i)
+        {
+            for(int j = 0; j < D; ++j)
+            {
+                starpu_task_insert(&gemm_cl, STARPU_R, A[i*D+j], STARPU_R, B[i*D+j],
+                        C_mode, C[j], 0);
+            }
+        }
+    }
     // Wait for all computations to finish
     starpu_task_wait_for_all();
     const auto end1{std::chrono::steady_clock::now()};
     const std::chrono::duration<double> elapsed_seconds1{end1 - start1};
-    std::cout << "Time for one way of task submission: "
+    std::cout << "Time for one way of task submission (the same as warmup): "
         << elapsed_seconds1.count() << " seconds\n";
     // Run compute with another way of task submission
     starpu_task_wait_for_all();
-    //starpu_pause();
+    const auto start2{std::chrono::steady_clock::now()};
     for(int r = 0; r < R; ++r)
     {
         for(int j = 0; j < D; ++j)
@@ -286,8 +295,6 @@ int main(int argc, char **argv)
             }
         }
     }
-    const auto start2{std::chrono::steady_clock::now()};
-    //starpu_resume();
     // Wait for all computations to finish
     starpu_task_wait_for_all();
     const auto end2{std::chrono::steady_clock::now()};

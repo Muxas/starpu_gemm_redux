@@ -1,0 +1,276 @@
++ for sched in dm dmda dmdar
++ export STARPU_SCHED=dm
++ STARPU_SCHED=dm
+++ seq 8
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=1
++ STARPU_NCUDA=1
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=1 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=1 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=2
++ STARPU_NCUDA=2
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=2 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=2 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=3
++ STARPU_NCUDA=3
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=3 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=3 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=4
++ STARPU_NCUDA=4
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=4 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=4 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=5
++ STARPU_NCUDA=5
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=5 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=5 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=6
++ STARPU_NCUDA=6
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=6 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=6 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=7
++ STARPU_NCUDA=7
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=7 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=7 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=8
++ STARPU_NCUDA=8
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=8 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dm STARPU_NCUDA=8 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for sched in dm dmda dmdar
++ export STARPU_SCHED=dmda
++ STARPU_SCHED=dmda
+++ seq 8
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=1
++ STARPU_NCUDA=1
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=1 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=1 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=2
++ STARPU_NCUDA=2
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=2 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=2 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=3
++ STARPU_NCUDA=3
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=3 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=3 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=4
++ STARPU_NCUDA=4
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=4 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=4 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=5
++ STARPU_NCUDA=5
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=5 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=5 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=6
++ STARPU_NCUDA=6
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=6 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=6 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=7
++ STARPU_NCUDA=7
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=7 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=7 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=8
++ STARPU_NCUDA=8
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=8 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmda STARPU_NCUDA=8 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for sched in dm dmda dmdar
++ export STARPU_SCHED=dmdar
++ STARPU_SCHED=dmdar
+++ seq 8
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=1
++ STARPU_NCUDA=1
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=1 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=1 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=2
++ STARPU_NCUDA=2
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=2 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=2 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=3
++ STARPU_NCUDA=3
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=3 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=3 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=4
++ STARPU_NCUDA=4
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=4 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=4 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=5
++ STARPU_NCUDA=5
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=5 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=5 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=6
++ STARPU_NCUDA=6
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=6 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=6 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=7
++ STARPU_NCUDA=7
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=7 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=7 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
++ for ncuda in '$(seq 8)'
++ export STARPU_NCUDA=8
++ STARPU_NCUDA=8
++ echo 'Check STARPU_RW|STARPU_COMMUTE data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=8 gemm_redux 256' '1536 1536 32 100 10 0'
++ ./build/gemm_redux 256 1536 1536 32 100 50 0
++ echo
++ echo 'Check STARPU_REDUX data access mode'
++ echo 'STARPU_SCHED=dmdar STARPU_NCUDA=8 gemm_redux 256' '1536 1536 32 100 10 1'
++ ./build/gemm_redux 256 1536 1536 32 100 50 1
++ echo
